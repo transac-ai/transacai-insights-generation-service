@@ -1,8 +1,8 @@
 import {
   defineChatEndpoint,
   getChatEndpointRunner,
-} from "@oconva/qvikchat/endpoints";
-import { setupGenkit } from "@oconva/qvikchat/genkit";
+  setupGenkit,
+} from "@oconva/qvikchat";
 
 /**
  * Test suite for Open-ended chat endpoint.
@@ -47,12 +47,15 @@ describe("Test - Open-ended Chat Tests", () => {
         expect(response).toBeDefined();
         if (typeof response === "string") {
           // should not be empty
-          expect(response.length).toBeGreaterThan(0);
+          expect((response as string).length).toBeGreaterThan(0);
         } else {
           expect(response).toHaveProperty("response");
           if ("response" in response) {
-            // should not be empty
-            expect(response.response.length).toBeGreaterThan(0);
+            const res = response.response;
+            if (typeof res === "string" || Array.isArray(res)) {
+              // should not be empty
+              expect(res.length).toBeGreaterThan(0);
+            }
           } else {
             throw new Error(
               `error in response generation. Response: ${JSON.stringify(response)}`

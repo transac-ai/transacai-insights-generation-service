@@ -1,7 +1,7 @@
 {
-  "name": "qvikchat-starter-template",
+  "name": "transacai-insights-generation-service",
   "version": "1.0.0",
-  "description": "Pre-configured project to help you get started with QvikChat quickly.",
+  "description": "Insights Generation Service (IGS) of the TransacAI project.",
   "main": "lib/index.js",
   "scripts": {
     "start": "nodemon -x tsx lib/index.js",
@@ -13,13 +13,10 @@
     "predeploy": "pnpm lint && pnpm format && pnpm build && pnpm test"
   },
   "keywords": [
-    "qvikchat",
-    "conversational ai",
-    "chat",
-    "chatbot",
-    "chat agent",
-    "langchain",
-    "genkit"
+    "TransacAI",
+    "Generative AI",
+    "Large Language Models",
+    "LLM"
   ],
   "author": "Oconva <oconva.org@gmail.com> (https://github.com/oconva)",
   "license": "MIT",
@@ -41,6 +38,9 @@
     "typescript-eslint": "^8.11.0"
   },
   "dependencies": {
-    "@oconva/qvikchat": "^2.0.3"
+    "@genkit-ai/dotprompt": "^0.5.17",
+    "@genkit-ai/flow": "^0.5.17",
+    "@oconva/qvikchat": "^2.0.4",
+    "zod": "^3.23.8"
   }
 }

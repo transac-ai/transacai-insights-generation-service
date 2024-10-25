@@ -1,5 +1,5 @@
 import { setupGenkit, runServer } from "@oconva/qvikchat/genkit";
-import { definePublicEndpoints } from "./endpoints/public-endpoints";
+import { definePublicEndpoints } from "./core/public-endpoints";
 
 // Setup Genkit
 setupGenkit();
