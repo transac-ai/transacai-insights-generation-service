@@ -1,6 +1,36 @@
-# QvikChat Starter Template
+# TransacAI Insights Generation Service
 
-This is a starter template for QvikChat. It comes pre-configured with the following features:
+This project is the codebase for the Insights Generation Service (IGS) of the TransacAI project.
+
+## TransacAI
+
+TransacAI project is geared towards generation of enriched summaries and insights of transactional data in real-time or batch using Generative AI and Large Language Models (LLMs). It goes beyond visual and analytical processing of transactional data by generating context-aware and enriched insights in natural language using LLMs. It focuses on delivering human-centric analysis that is easier to understand and act upon, eliminating the need for multiple complex data processing steps to derive insights from raw data.
+
+## Insights Generation Service (IGS)
+
+IGS is one of the core service of the TransacAI project. The primary goal of this service is to generate enriched insights from transactional data using Generative AI and Large Language Models (LLMs). The service is designed to be scalable and efficient to handle real-time and batch processing of transactional data.
+
+IGS uses **gRPC** to communicate with the Prompt Builder Service (PBS) of the TransacAI project, to get the prompt to be used to generate LLM response.
+
+Core functionalities of the IGS are:
+
+1. Receives a request through gRPC from the Workload Manager Service (WMS) to generate insights from transactional data.
+2. Uses gRPC to communicate with the Prompt Builder Service (PBS) to get the prompt to be used to generate insights using Large Language Model (LLM).
+3. Generates insights from LLM using Gemini API or OpenAI API through QvikChat.
+4. Save the generated insights in the database.
+5. Send update on Kafka topic to inform clients about the generated insights.
+
+In a nutshell, flow looks like this:
+
+```
+1. WMS -> IGS
+2. IGS <- PBS
+3. IGS <- LLM
+4. IGS -> Database
+5. IGS -> Kafka
+```
+
+This project was setup using [QvikChat Starter Template](https://github.com/oconva/qvikchat-starter-template). It comes pre-configured with the following features:
 
 - **QvikChat**: QvikChat installed and configured to start serving chat endpoints.
 - **TypeScript**: TypeScript to allow you to write type-safe code efficiently.
@@ -11,12 +41,14 @@ This is a starter template for QvikChat. It comes pre-configured with the follow
 - **SWC**: For faster and more efficient TypeScript compilation.
 - **PNPM**: PNPM to manage your dependencies efficiently.
 
-## Getting Started
+## Local Development
 
-Simply, clone the [QvikChat starter template](https://github.com/oconva/qvikchat-starter-template) to get started.
+### Prerequisites
+
+Clone the repository.
 
 ```bash copy
-git clone https://github.com/oconva/qvikchat-starter-template.git
+git clone https://github.com/pranav-kural/transacai-insights-generation-service.git
 ```
 
 ### Setup Environment Variables
@@ -25,41 +57,29 @@ Create a `.env` file in the root of the project and add the following environmen
 
 ```env copy
 GOOGLE_GENAI_API_KEY=
-OPENAI_API_KEY=
-GOOGLE_APPLICATION_CREDENTIALS=
 ```
 
 Alternatively, you can copy the `.env.tmp` file or rename it to `.env` and fill in the values.
 
 By default QvikChat uses the Google GenAI, so to use QvikChat with default settings, you need to provide the `GOOGLE_GENAI_API_KEY`. You don't have to set values for other environment variables if you are using the default settings.
 
-Add value to the `OPENAI_API_KEY` variable if you're going to use OpenAI models and to the `GOOGLE_APPLICATION_CREDENTIALS` variable if you're going to use Firebase Firestore.
+Add value to the `OPENAI_API_KEY` variable if you're going to use OpenAI models.
 
 ### Running the Project
 
 You can run the following commands to get started:
 
 ```bash copy
-npm install # or pnpm install
-npm run dev # or pnpm dev
+pnpm install
+pnpm dev
 ```
-
-The starter template predefines some chat endpoints. Once, you run the project, you can test the endpoints from terminal using command below:
-
-```bash copy
-curl -X POST "http://127.0.0.1:3400/chat" -H "Content-Type: application/json"  -d '{"data": { "query": "Answer in one sentence: What is Firebase Firestore?" } }'
-```
-
-Above example points to `http://127.0.0.1:3400`. You can change this port and host depending on where you are running the server and on which port.
-
-You could also use the [Genkit Developer UI](#genkit-developer-ui) to test the endpoints.
 
 ### Testing
 
-The starter template comes with Jest pre-configured to run your tests, and some tests predefined in the `src/tests` directory. You can run the tests using the following command:
+This project comes with Jest pre-configured to run your tests, and some tests predefined in the `src/tests` directory. You can run the tests using the following command:
 
 ```bash copy
-npm run test # or pnpm test
+pnpm test
 ```
 
 Please ensure you have the environment variables set up before running the tests.
@@ -68,7 +88,7 @@ By default, Jest is configured to test the source code in the `src` directory. Y
 
 ### Genkit Developer UI
 
-You can run the Genkit developer UI to test the endpoints. Testing the endpoints using a graphical interface is probably the easiest way to get started. You can know more about the Genkit Developer UI [here](https://firebase.google.com/docs/genkit/devtools#genkit_developer_ui).
+You can run the Genkit developer UI to test the response generation through GUI interface. You can know more about the Genkit Developer UI [here](https://firebase.google.com/docs/genkit/devtools#genkit_developer_ui).
 
 Start the Genkit developer UI:
 
@@ -87,3 +107,49 @@ Then start the Genkit developer UI:
 ```bash copy
 genkit start
 ```
+
+### Linting
+
+This project comes with ESLint pre-configured to enforce code quality and consistency. You can run ESLint using the following command:
+
+```bash copy
+pnpm lint
+```
+
+You can also run ESLint in watch mode using the following command:
+
+```bash copy
+pnpm lint:watch
+```
+
+### Formatting
+
+This project comes with Prettier pre-configured to format your code automatically and ensure consistent code style. You can run Prettier using the following command:
+
+```bash copy
+pnpm format
+```
+
+### Building
+
+You can build the project using the following command:
+
+```bash copy
+pnpm build
+```
+
+This will compile the TypeScript code in the `src` directory and output the compiled JavaScript code in the `lib` directory.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Issues
+
+If you encounter any issues or bugs while using this project, please report them by following these steps:
+
+1. Check if the issue has already been reported by searching our [issue tracker](https://github.com/pranav-kural/transacai-insights-generation-service/issues).
+2. If the issue hasn't been reported, create a new issue and provide a detailed description of the problem.
+3. Include steps to reproduce the issue and any relevant error messages or screenshots.
+
+[Open Issue](https://github.com/pranav-kural/transacai-insights-generation-service/issues/new)
