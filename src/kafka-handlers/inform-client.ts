@@ -5,5 +5,5 @@ export function dispatchMsg(topic: string, msg: string) {
 }
 
 export function informClients(data: KafkaInsightsUpdateDataSchema) {
-  dispatchMsg("clients", data.clientId);
+  dispatchMsg("clients", JSON.stringify(data));
 }

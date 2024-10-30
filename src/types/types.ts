@@ -3,7 +3,8 @@ export type InsightsGenerationRequestParams = {
   req_id: string;
   client_id: string;
   prompt_id: number;
-  source_id: string;
+  records_source_id: string;
+  prompt_templates_source_id: string;
   from_time: string;
   to_time: string;
 };
