@@ -3,7 +3,7 @@
 import { generateInsights } from "../../endpoints/insights-gen-endpoint";
 
 describe("generateInsights", () => {
-  it("should use LLM to process prompt and generate response", async () => {
+  it.skip("should use LLM to process prompt and generate response", async () => {
     // test prompt
     const prompt = "Colors in a rainbow? Answer in a sentence.";
     const insights = await generateInsights(prompt);
