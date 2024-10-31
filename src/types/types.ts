@@ -8,9 +8,3 @@ export type InsightsGenerationRequestParams = {
   from_time: string;
   to_time: string;
 };
-
-export type KafkaInsightsUpdateDataSchema = {
-  reqId: string;
-  clientId: string;
-  insightsId: string;
-};

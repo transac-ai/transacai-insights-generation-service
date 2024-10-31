@@ -1,5 +1,5 @@
 import { generateInsights } from "../endpoints/insights-gen-endpoint";
-import { informClients } from "../kafka-handlers/inform-client";
+import { informClients } from "../kafka/inform-client";
 import { saveInsights } from "../transac-ai-services/iss/save-insights";
 import { buildPrompt } from "../transac-ai-services/pbs/service";
 import { InsightsGenerationRequestParams } from "../types/types";
@@ -26,9 +26,9 @@ export async function insightsGenerationHandler(
     }).then((insightsId) => {
       // inform clients through Kafka
       informClients({
-        reqId: params.req_id,
-        clientId: params.client_id,
-        insightsId,
+        request_id: params.req_id,
+        client_id: params.client_id,
+        insights_id: insightsId,
       });
     });
   });
