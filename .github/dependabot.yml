@@ -15,7 +15,7 @@ updates:
     commit-message:
       prefix: "Dependency Updates"
     ignore:
-        # For Eslint, ignore all Dependabot updates for version 9 until supported by peer dependencies (typescript-eslint)
+      # For Eslint, ignore all Dependabot updates for version 9 until supported by peer dependencies (typescript-eslint)
       - dependency-name: "eslint"
         versions: ["9.x"]
     groups:

@@ -1,6 +1,7 @@
 import { Consumer, EachMessageHandler, Kafka, Producer } from "kafkajs";
 import { CLIENT_ID } from "./constants";
 import "dotenv/config";
+import logger from "../utils/logger";
 
 // Singleton instances
 let kafka: Kafka;
@@ -10,7 +11,10 @@ let producerConnected = false;
 let consumerConnected = false;
 
 function getKafkaClient() {
+  // setup logger
+  const cLog = logger.child({ context: "getKafkaClient" });
   if (!kafka) {
+    cLog.info(`Creating Kafka client.`);
     if (!process.env.BOOTSTRAP_SERVER) {
       throw new Error("BOOTSTRAP_SERVER is required");
     }
@@ -46,21 +50,28 @@ export const produce = async ({
   key: string | Buffer | null | undefined;
   value: string | Buffer;
 }) => {
+  // setup logger
+  const cLog = logger.child({ context: "produce" });
+
   if (!kafka) {
+    cLog.info(`Kafka client not setup. Creating Kafka client.`);
     kafka = getKafkaClient();
   }
 
   if (!producer) {
+    cLog.info("Kafka producer not setup. Creating Kafka producer.");
     producer = kafka.producer();
   }
 
   if (!producerConnected) {
+    cLog.info("Kafka producer not connected. Connecting Kafka producer.");
     // connect producer
     await producer.connect();
     producerConnected = true;
   }
 
-  await producer.send({
+  cLog.info(`Sending message to topic ${topic}.`);
+  producer.send({
     topic: topic,
     messages: [{ key, value }],
   });
@@ -75,23 +86,31 @@ export async function consume({
   groupId: string;
   eachMessage: EachMessageHandler | undefined;
 }) {
+  // setup logger
+  const cLog = logger.child({ context: "consume" });
+
   if (!kafka) {
+    cLog.info(`Kafka client not setup. Creating Kafka client.`);
     kafka = getKafkaClient();
   }
 
   if (!consumer) {
+    cLog.info("Kafka consumer not setup. Creating Kafka consumer.");
     consumer = kafka.consumer({ groupId });
   }
 
   if (!consumerConnected) {
+    cLog.info("Kafka consumer not connected. Connecting Kafka consumer.");
     // connect consumer
     await consumer.connect();
     consumerConnected = true;
   }
 
+  cLog.info(`Subscribing to topic ${topic}.`);
   await consumer.subscribe({ topic, fromBeginning: true });
 
-  await consumer.run({
+  cLog.info(`Consuming messages from topic ${topic}.`);
+  consumer.run({
     eachMessage,
   });
 }

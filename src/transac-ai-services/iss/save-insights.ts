@@ -1,4 +1,5 @@
 import "dotenv/config";
+import logger from "../../utils/logger";
 
 /**
  * Type definition for data required to save insights to database.
@@ -34,11 +35,17 @@ export type CreateInsightResponse = {
  * @returns ID of the saved insights
  */
 export async function saveInsights(params: SaveInsightsParams) {
+  // setup logger
+  const cLog = logger.child({
+    context: "saveInsights",
+    requestId: params.requestId,
+  });
   // get the ISS service address and API key from environment variables
   const ISS_SERVICE_ADDRESS = process.env.ISS_SERVICE_ADDRESS;
   const ISS_API_KEY = process.env.ISS_API_KEY;
   // check if the ISS service address and API key are set
   if (!ISS_SERVICE_ADDRESS || !ISS_API_KEY) {
+    cLog.error(`Server address or API key is not set in environment variables`);
     throw new Error(
       "Server address or API key is not set in environment variables"
     );
@@ -56,31 +63,39 @@ export async function saveInsights(params: SaveInsightsParams) {
     },
   };
 
-  // call the ISS service to save the insights
-  const response = await fetch(ISS_SERVICE_ADDRESS, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `${ISS_API_KEY}`,
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  });
+  try {
+    cLog.info(`Sending request to ISS service to save insights`);
+    // call the ISS service to save the insights
+    const response = await fetch(ISS_SERVICE_ADDRESS, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${ISS_API_KEY}`,
+      },
+      body: JSON.stringify({
+        query,
+        variables,
+      }),
+    });
 
-  // parse the response
-  const result = (await response.json()) as CreateInsightResponse & {
-    errors?: { message: string }[];
-  };
+    cLog.info(`Received response from ISS service to save insights`);
 
-  console.log(JSON.stringify(result));
+    // parse the response
+    const result = (await response.json()) as CreateInsightResponse & {
+      errors?: { message: string }[];
+    };
 
-  // check if the response is successful
-  if (response.ok) {
-    // return the ID of the saved insights
-    return result.data.createInsight;
-  } else {
-    throw new Error(result.errors ? result.errors[0].message : "Unknown error");
+    // check if the response is successful
+    if (response.ok && !("errors" in result && result.errors?.length)) {
+      cLog.info(`Insights saved successfully`);
+      // return the ID of the saved insights
+      return result.data.createInsight;
+    } else {
+      cLog.error(result.errors ? result.errors[0].message : "Unknown error");
+      return "";
+    }
+  } catch (error) {
+    cLog.error("Error saving insights:", error);
+    return "";
   }
 }

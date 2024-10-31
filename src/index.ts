@@ -37,9 +37,7 @@ function addReflectionService(server: grpc.Server) {
   // if current environment is not production, add reflection service
   if (process.env.NODE_ENV !== "production") {
     // Add reflection service
-    const pkg = protoLoader.loadSync(
-      __dirname + "/rpc/insights-generation-handler.proto"
-    );
+    const pkg = protoLoader.loadSync(__dirname + "/rpc/igs.proto");
     const reflection = new ReflectionService(pkg);
     reflection.addToServer(server);
   }

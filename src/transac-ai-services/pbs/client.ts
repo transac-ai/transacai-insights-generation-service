@@ -3,6 +3,7 @@ import * as protoLoader from "@grpc/proto-loader";
 import * as path from "path";
 import type { PromptBuilderClient, ProtoGrpcType } from "./types";
 import "dotenv/config";
+import logger from "../../utils/logger";
 
 // Load protobuf
 const PROTO_PATH = path.join(__dirname, "prompt_builder.proto");
@@ -26,12 +27,16 @@ let client: PromptBuilderClient | undefined;
  * @returns {PromptBuilderClient} The gRPC client for PBS service.
  */
 export function getPBSClient() {
+  // Setup logger
+  const cLog = logger.child({ context: "getPBSClient" });
   // Initialize the client if not already initialized
   if (!client) {
+    cLog.info(`Initializing PBS client.`);
     // get PBS service connection address from environment variable
     const PBS_SERVICE_ADDRESS = process.env.PBS_SERVICE_ADDRESS;
     // throw error if PBS_SERVICE_ADDRESS environment variable is not set
     if (!PBS_SERVICE_ADDRESS) {
+      cLog.error(`PBS_SERVICE_ADDRESS environment variable is not set.`);
       throw new Error("PBS_SERVICE_ADDRESS environment variable is not set.");
     }
     // create gRPC client for PBS service
@@ -39,6 +44,7 @@ export function getPBSClient() {
       PBS_SERVICE_ADDRESS,
       grpc.credentials.createInsecure()
     );
+    cLog.info(`Created PBS client.`);
   }
   return client;
 }

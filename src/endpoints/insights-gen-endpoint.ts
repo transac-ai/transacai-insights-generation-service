@@ -4,6 +4,7 @@ import { Flow } from "@genkit-ai/flow";
 import { getEndpointRunner } from "./endpoint-runner";
 import { insightGenEndpointConfig } from "../endpoint-configs/insight-gen-endpoint-config";
 import { setupGenkit } from "../utils/setup-genkit";
+import logger from "../utils/logger";
 
 // Singleton instance to hold the insights generation endpoint
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,10 +13,13 @@ let insightsGenEndpoint: Flow<any, ZodTypeAny, ZodTypeAny> | undefined;
 // Method to get the insights generation endpoint
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getInsightsGenEndpoint(): Flow<any> {
+  // setup logger
+  const cLog = logger.child({ context: "getInsightsGenEndpoint" });
   // ensure Genkit is setup
   setupGenkit();
   // define insights generation endpoint if not already defined
   if (!insightsGenEndpoint) {
+    cLog.info(`Initializing insights generation endpoint.`);
     insightsGenEndpoint = defineChatEndpoint(insightGenEndpointConfig);
   }
   return insightsGenEndpoint;
@@ -27,6 +31,9 @@ export function getInsightsGenEndpoint(): Flow<any> {
  * @returns Insights generated from the query using LLM
  */
 export async function generateInsights(query: string): Promise<string> {
+  // Setup logger
+  const cLog = logger.child({ context: "generateInsights" });
+  cLog.info(`Generating insights for query.`);
   // process query and generate endpoint response
   const response = await getEndpointRunner()(getInsightsGenEndpoint(), {
     query,
@@ -37,16 +44,17 @@ export async function generateInsights(query: string): Promise<string> {
     if (res.length > 0) {
       return res;
     } else {
-      throw new Error("Error in generating insights: Empty response");
+      cLog.error("Error in generating insights: Empty response");
+      return "Unable to generate insights";
     }
   } else {
     if ("error" in response) {
       const error = response.error as string;
-      throw new Error(`Error in generating insights: ${error}`);
+      cLog.error(`Error in generating insights: ${error}`);
+      return "Unable to generate insights";
     } else {
-      throw new Error(
-        `Error in generating insights: ${JSON.stringify(response)}`
-      );
+      cLog.error(`Error in generating insights: ${JSON.stringify(response)}`);
+      return "Unable to generate insights";
     }
   }
 }

@@ -19,7 +19,7 @@ interface ProtoDescriptor {
 // function to get IGS service definition
 export function getInsightsGenerationServiceDef() {
   // Load the protobuf
-  const PROTO_PATH = path.join(__dirname, "insights-generation-handler.proto");
+  const PROTO_PATH = path.join(__dirname, "igs.proto");
   const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
     keepCase: true,
     longs: String,
