@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transac-ai-igs-gke
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: transac-ai-igs
+  template:
+    metadata:
+      labels:
+        app: transac-ai-igs
+    spec:
+      containers:
+        - name: igs-app
+          image: us-east1-docker.pkg.dev/transac-ai/igs-repo/transac-ai-igs-gke:latest
+          ports:
+            # gRPC server port
+            - containerPort: 50051
+          env:
+            - name: GOOGLE_GENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-google-genai-api-key
+            - name: PBS_SERVICE_ADDRESS
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-pbs-service-address
+            - name: ISS_SERVICE_ADDRESS
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-iss-service-address
+            - name: ISS_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-iss-api-key
+            - name: BOOTSTRAP_SERVER
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-bootstrap-server
+            - name: SECURITY_PROTOCOL
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-security-protocol
+            - name: SASL_MECHANISMS
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-sasl-mechanisms
+            - name: SASL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-sasl-username
+            - name: SASL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: transac-ai-igs-secrets
+                  key: transac-ai-igs-sasl-password
+            - name: KAFKAJS_NO_PARTITIONER_WARNING
+              value: "1"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+              ephemeral-storage: "128Mi"
+            limits:
+              memory: "256Mi"
+              cpu: "100m"
+              ephemeral-storage: "256Mi"
