@@ -4,7 +4,7 @@
   "description": "Insights Generation Service (IGS) of the TransacAI project.",
   "main": "lib/index.js",
   "scripts": {
-    "start": "nodemon -x tsx lib/index.js",
+    "start": "node lib/index.js",
     "dev": "npm run build && npm run start",
     "build": "swc --strip-leading-paths --delete-dir-on-start -d lib src && sh copy_proto_files.sh",
     "lint": "pnpm eslint .",
