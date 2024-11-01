@@ -46,15 +46,32 @@ updates:
           - "ts-*"
           - "tsx"
           - "typescript*"
-      # group QvikChat related updates in a single pull request
-      qvikchat:
+      # group gRPC packages
+      grpc-package-updates:
         applies-to: version-updates
         patterns:
-          - "@oconva/qvikchat"
-      qvikchat-security-updates:
+          - "@grpc*"
+      grpc-security-updates:
         applies-to: security-updates
         patterns:
-          - "@oconva/qvikchat"
+          - "@grpc*"
+      # group utility updates
+      utils-package-updates:
+        applies-to: version-updates
+        patterns:
+          - "@genkit*"
+          - "dotenv"
+          - "winston"
+          - "zod"
+          - "kafkajs"
+      utils-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "@genkit*"
+          - "dotenv"
+          - "winston"
+          - "zod"
+          - "kafkajs"
 
   - package-ecosystem: "github-actions"
     directory: "/"
