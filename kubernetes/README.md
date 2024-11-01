@@ -37,7 +37,7 @@ gcloud container clusters create-auto transac-ai-gke --location us-east1
 ```bash
 kubectl create secret generic transac-ai-igs-secrets \
 --from-literal=transac-ai-igs-google-genai-api-key='' \
---from-literal=transac-ai-igs-igs-service-address='' \
+--from-literal=transac-ai-igs-pbs-service-address='' \
 --from-literal=transac-ai-igs-iss-service-address='' \
 --from-literal=transac-ai-igs-iss-api-key='' \
 --from-literal=transac-ai-igs-bootstrap-server='' \
@@ -96,3 +96,23 @@ kubectl apply -f kubernetes/service.yaml
 ```
 
 This service will only be used through the Workload Manager Service (WMS) so, it does not need to be accessible externally.
+
+## Commands
+
+### Patching Secrets
+
+For example, for changing the address of PBS or ISS services.
+
+```bash
+kubectl patch secret transac-ai-igs-secrets \
+--type='json' \
+-p='[{"op": "replace", "path": "/data/transac-ai-igs-pbs-service-address", "value": "'$(echo -n "<value>" | base64)'"}]'
+```
+
+### Restarting Deployment
+
+For initiating a rolling restart of the deployment.
+
+```bash
+kubectl rollout restart deployment transac-ai-igs-gke
+```
