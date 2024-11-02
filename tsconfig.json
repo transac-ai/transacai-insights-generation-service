@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/**/**/*.proto"],
   "compileOnSave": true,
   "compilerOptions": {
     "module": "NodeNext",

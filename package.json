@@ -1,25 +1,28 @@
 {
-  "name": "qvikchat-starter-template",
+  "name": "transacai-insights-generation-service",
   "version": "1.0.0",
-  "description": "Pre-configured project to help you get started with QvikChat quickly.",
+  "description": "Insights Generation Service (IGS) of the TransacAI project.",
   "main": "lib/index.js",
   "scripts": {
-    "start": "nodemon -x tsx lib/index.js",
+    "start": "node lib/index.js",
     "dev": "npm run build && npm run start",
-    "build": "swc --strip-leading-paths --delete-dir-on-start -d lib src",
+    "build": "swc --strip-leading-paths --delete-dir-on-start -d lib src && sh copy_proto_files.sh",
     "lint": "pnpm eslint .",
     "format": "pnpm prettier . --write",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --no-watchman",
+    "buildandtest": "pnpm build && pnpm test",
     "predeploy": "pnpm lint && pnpm format && pnpm build && pnpm test"
   },
   "keywords": [
-    "qvikchat",
-    "conversational ai",
-    "chat",
-    "chatbot",
-    "chat agent",
-    "langchain",
-    "genkit"
+    "TransacAI",
+    "transac ai",
+    "transac-ai",
+    "Insights Generation Service",
+    "Generative AI",
+    "Large Language Models",
+    "LLM",
+    "gRPC",
+    "Apache Kafka"
   ],
   "author": "Oconva <oconva.org@gmail.com> (https://github.com/oconva)",
   "license": "MIT",
@@ -41,6 +44,15 @@
     "typescript-eslint": "^8.11.0"
   },
   "dependencies": {
-    "@oconva/qvikchat": "^2.0.3"
+    "@genkit-ai/dotprompt": "^0.5.17",
+    "@genkit-ai/flow": "^0.5.17",
+    "@grpc/grpc-js": "^1.12.2",
+    "@grpc/proto-loader": "^0.7.13",
+    "@grpc/reflection": "^1.0.4",
+    "@oconva/qvikchat": "^2.0.4",
+    "dotenv": "^16.4.5",
+    "kafkajs": "^2.2.4",
+    "winston": "^3.15.0",
+    "zod": "^3.23.8"
   }
 }

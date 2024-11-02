@@ -1,28 +1,7 @@
-# VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-# Local History for Visual Studio Code
-.history/
-
-# Private Node Modules
-creds.js
-
-# Mac/OSX
-.DS_Store
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Distribution / packaging
-build/
-dist/
-lib/
+# Prisma
+src/generated
+*.env*
+*.db
 
 # Logs
 logs
@@ -119,6 +98,9 @@ dist
 
 # Gatsby files
 .cache/
+# Comment in the public line in if your project uses Gatsby and not Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# public
 
 # vuepress build output
 .vuepress/dist
@@ -144,7 +126,6 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
-.vscode
 
 # yarn v2
 .yarn/cache
@@ -153,12 +134,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# WebStorm
-.idea
-
-# Keys
-*.pem
-
-# Test files
-test.txt
-tmp-test-flows.ts
+# Documentation
+*.md
+LICENSE

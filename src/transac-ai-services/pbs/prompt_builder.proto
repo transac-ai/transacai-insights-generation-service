@@ -1,0 +1,29 @@
+/*
+* File version: 1.0.0
+* Last updated: 2024-10-29 20:02:00 EST
+* Last updated by: pkural
+* Source: https://github.com/pranav-kural/transacai-prompt-builder-service/blob/main/src/rpc/protos/prompt_builder.proto
+*/
+
+syntax = "proto3";
+package prompt_builder;
+
+service PromptBuilder {
+  rpc BuildPrompt (BuildPromptRequest) returns (BuildPromptResponse);
+}
+
+// Request parameters for BuildPrompt
+message BuildPromptRequest {
+    string req_id = 1;
+    string client_id = 2;
+    int32 prompt_id = 3;
+    string records_source_id = 4;
+    string prompt_templates_source_id = 5;
+    string from_time = 6;
+    string to_time = 7;
+}
+
+// Response for BuildPrompt
+message BuildPromptResponse {
+    string prompt = 1;
+}

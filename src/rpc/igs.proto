@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package igs;
+
+// Request parameters for InsightsGeneration
+message InsightsGenerationRequest {
+  string req_id = 1;
+  string client_id = 2;
+  int32 prompt_id = 3;
+  string records_source_id = 4;
+  string prompt_templates_source_id = 5;
+  string from_time = 6;
+  string to_time = 7;
+}
+
+message InsightsGenerationResponse {
+  bool received = 1;
+}
+
+// Service definition for InsightsGeneration
+service InsightsGenerationService {
+  rpc GenerateInsights (InsightsGenerationRequest) returns (InsightsGenerationResponse);
+}

@@ -1,0 +1,1 @@
+cp src/transac-ai-services/pbs/*.proto lib/transac-ai-services/pbs && cp src/rpc/*.proto lib/rpc

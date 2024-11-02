@@ -140,6 +140,32 @@ pnpm build
 
 This will compile the TypeScript code in the `src` directory and output the compiled JavaScript code in the `lib` directory.
 
+## gRPC
+
+IGS exposes a `GenerateInsights` method through gRPC which can be used by the Workload Manager Service (WMS) to initiate a request to generate insights. This method only returns an object for acknowledgement with a property `received` set to `true` to indicate that the request has been received successfully. The actual insights generation process is asynchronous and the generated insights are sent to the Kafka topic.
+
+Proto file for the service is located at `src/rpc/igs.proto`.
+
+### Testing Locally
+
+You can use the [grpcurl](https://github.com/fullstorydev/grpcurl) CLI tool to test the gRPC service locally.
+
+To list services:
+
+```
+grpcurl -plaintext 0.0.0.0:50051 list
+```
+
+Please note that reflections API is disabled in production, so you won't be able to list services in production.
+
+To call the `GenerateInsights` method (remember to change `reqId` to a unique value), you can use a command similar to below:
+
+```
+grpcurl -plaintext -d '{"reqId":"ghgfjerherw","clientId":"test_client","promptId":2,"recordsSourceId":"SUPABASE","promptTemplatesSourceId":"SUPABASE","fromTime":"2019-12-29T06:39:22Z","toTime":"2019-12-29T23:49:22Z"}' 0.0.0.0:50051 igs.InsightsGenerationService/GenerateInsights
+```
+
+Above request uses test client and `promptId` of 2, with sources for both records and prompt templates as `SUPABASE`. You can change the values as per your requirement.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
