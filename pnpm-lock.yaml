@@ -57,8 +57,8 @@ importers:
         specifier: ^2.2.4
         version: 2.2.4
       winston:
-        specifier: ^3.15.0
-        version: 3.15.0
+        specifier: ^3.16.0
+        version: 3.16.0
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -1557,6 +1557,9 @@ packages:
 
   '@types/node@18.19.59':
     resolution: {integrity: sha512-vizm2EqwV/7Zay+A6J3tGl9Lhr7CjZe2HmWS988sefiEmsyP9CeXEleho6i4hJk/8UtZAo0bWN4QPZZr83RxvQ==}
+
+  '@types/node@18.19.64':
+    resolution: {integrity: sha512-955mDqvO2vFf/oL7V3WiUtiz+BugyX8uVbaT2H8oj3+8dRyH2FLiNdowe7eNqRM7IOIZvzDH76EoAT+gwm6aIQ==}
 
   '@types/node@20.14.10':
     resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
@@ -4195,8 +4198,8 @@ packages:
     resolution: {integrity: sha512-qxSTKswC6llEMZKgCQdaWgDuMJQnhuvF5f2Nk3SNXc4byfQ+voo2mX1Px9dkNOuR8p0KAjfPG29PuYUSIb+vSA==}
     engines: {node: '>= 12.0.0'}
 
-  winston@3.15.0:
-    resolution: {integrity: sha512-RhruH2Cj0bV0WgNL+lOfoUBI4DVfdUNjVnJGVovWZmrcKtrFTTRzgXYK2O9cymSGjrERCtaAeHwMNnUWXlwZow==}
+  winston@3.16.0:
+    resolution: {integrity: sha512-xz7+cyGN5M+4CmmD4Npq1/4T+UZaz7HaeTlAruFUTjk79CNMq+P6H30vlE4z0qfqJ01VHYQwd7OZo03nYm/+lg==}
     engines: {node: '>= 12.0.0'}
 
   word-wrap@1.2.5:
@@ -4868,7 +4871,7 @@ snapshots:
 
   '@ibm-cloud/watsonx-ai@1.1.1':
     dependencies:
-      '@types/node': 18.19.59
+      '@types/node': 18.19.64
       extend: 3.0.2
       ibm-cloud-sdk-core: 5.1.0
     transitivePeerDependencies:
@@ -5080,7 +5083,7 @@ snapshots:
       flat: 5.0.2
       ibm-cloud-sdk-core: 5.1.0
       js-yaml: 4.1.0
-      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
+      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
       langsmith: 0.2.0(openai@4.68.4(zod@3.23.8))
       uuid: 10.0.0
       zod: 3.23.8
@@ -5109,13 +5112,13 @@ snapshots:
       - openai
       - peggy
 
-  '@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
+  '@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
     dependencies:
       ansi-styles: 5.2.0
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.12
-      langsmith: 0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      langsmith: 0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
       ml-distance: 4.0.1
       mustache: 4.2.0
       p-queue: 6.6.2
@@ -5161,9 +5164,9 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@langchain/textsplitters@0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
+  '@langchain/textsplitters@0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
     dependencies:
-      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
       js-tiktoken: 1.0.12
     transitivePeerDependencies:
       - langchain
@@ -5207,7 +5210,7 @@ snapshots:
       dotenv: 16.4.5
       firebase-admin: 12.7.0
       genkitx-openai: 0.10.1(@genkit-ai/ai@0.5.17)(@genkit-ai/core@0.5.17)
-      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
+      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
       zod: 3.23.8
     transitivePeerDependencies:
       - '@arcjet/redact'
@@ -5743,6 +5746,10 @@ snapshots:
   '@types/node@10.14.22': {}
 
   '@types/node@18.19.59':
+    dependencies:
+      undici-types: 5.26.5
+
+  '@types/node@18.19.64':
     dependencies:
       undici-types: 5.26.5
 
@@ -7091,7 +7098,7 @@ snapshots:
       isstream: 0.1.2
       jsonwebtoken: 9.0.2
       mime-types: 2.1.35
-      retry-axios: 2.6.0(axios@1.7.4)
+      retry-axios: 2.6.0(axios@1.7.4(debug@4.3.7))
       tough-cookie: 4.1.4
     transitivePeerDependencies:
       - supports-color
@@ -7640,11 +7647,11 @@ snapshots:
 
   kuler@2.0.0: {}
 
-  langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)):
+  langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)):
     dependencies:
       '@langchain/core': 0.3.15(openai@4.68.4(zod@3.23.8))
       '@langchain/openai': 0.3.11(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))
-      '@langchain/textsplitters': 0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      '@langchain/textsplitters': 0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
       js-tiktoken: 1.0.12
       js-yaml: 4.1.0
       jsonpointer: 5.0.1
@@ -7663,7 +7670,7 @@ snapshots:
       - encoding
       - openai
 
-  langsmith@0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)):
+  langsmith@0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)):
     dependencies:
       '@types/uuid': 9.0.8
       commander: 10.0.1
@@ -7672,8 +7679,8 @@ snapshots:
       semver: 7.6.3
       uuid: 9.0.1
     optionalDependencies:
-      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
-      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
+      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
       openai: 4.68.4(zod@3.23.8)
 
   langsmith@0.2.0(openai@4.68.4(zod@3.23.8)):
@@ -8223,7 +8230,7 @@ snapshots:
 
   ret@0.4.3: {}
 
-  retry-axios@2.6.0(axios@1.7.4):
+  retry-axios@2.6.0(axios@1.7.4(debug@4.3.7)):
     dependencies:
       axios: 1.7.4(debug@4.3.7)
 
@@ -8687,7 +8694,7 @@ snapshots:
       readable-stream: 4.5.2
       triple-beam: 1.4.1
 
-  winston@3.15.0:
+  winston@3.16.0:
     dependencies:
       '@colors/colors': 1.6.0
       '@dabh/diagnostics': 2.0.3
