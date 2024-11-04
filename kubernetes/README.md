@@ -23,7 +23,7 @@ gcloud artifacts repositories create igs-repo \
 3. Build the `igs-gke` container image using [Cloud Build](https://cloud.google.com/build).
 
 ```bash
-gcloud builds submit --tag us-east1-docker.pkg.dev/transac-ai/igs-repo/transac-ai-igs-gke .
+gcloud builds submit --tag us-east1-docker.pkg.dev/transac-ai/igs-repo/transac-ai-igs-gke:1.0.4 .
 ```
 
 4. Create `transac-ai-gke` GKE cluster if not already created.
@@ -35,7 +35,8 @@ gcloud container clusters create-auto transac-ai-gke --location us-east1
 5. Set secrets for environment variables.
 
 ```bash
-kubectl create secret generic transac-ai-igs-secrets \
+kubectl patch secret generic transac-ai-igs-secrets \
+--from-literal=transac-ai-igs-igs-api-key='' \
 --from-literal=transac-ai-igs-google-genai-api-key='' \
 --from-literal=transac-ai-igs-pbs-service-address='' \
 --from-literal=transac-ai-igs-iss-service-address='' \
@@ -86,7 +87,8 @@ transac-ai-igs-service   LoadBalancer   **.***.***.***   **.***.***.***    80:31
 Replace `<EXTERNAL-IP>` with the actual external IP address in the below command.
 
 ```bash
-grpcurl -plaintext -d '{"reqId":"gheejerherw","clientId":"test_client","promptId":2,"recordsSourceId":"SUPABASE","promptTemplatesSourceId":"SUPABASE","fromTime":"2019-12-29T06:39:22Z","toTime":"2019-12-29T23:49:22Z"}' <EXTERNAL-IP>:80 igs.InsightsGenerationService/GenerateInsights
+npx buf curl --http2-prior-knowledge --protocol grpc --schema . -H "Authorization: Bearer <IGS API Key>" -d '{"reqId":"gheedrherw","clientId":"test_client","promptId":2,"recordsSourceId":"SUPABASE","promptTemplatesSourceId":"SUPABASE","fromTime":"2019-12-29T06:39:22Z","toTime":"2019-12-29T23:49:22Z"}' \
+http://0.0.0.0:8080/igs.v1.IGSService/GenerateInsights
 ```
 
 11. Once testing completes, change the load balancer service to be accessible internally through the cluster only. Once done, re-apply the service manifest.
