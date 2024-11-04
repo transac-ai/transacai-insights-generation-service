@@ -9,7 +9,7 @@ spec:
   selector:
     app: transac-ai-igs
   ports:
-    - name: tcp-grpc-port
-      protocol: TCP
-      port: 80
-      targetPort: 50051
+  - name: tcp-grpc-port
+    protocol: TCP
+    port: 80
+    targetPort: 8080
