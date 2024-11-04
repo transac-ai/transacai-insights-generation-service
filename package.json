@@ -44,6 +44,12 @@
     "typescript-eslint": "^8.11.0"
   },
   "dependencies": {
+    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/protobuf": "^1.10.0",
+    "@bufbuild/protoc-gen-es": "^1.0.0",
+    "@connectrpc/connect": "^1.0.0",
+    "@connectrpc/connect-fastify": "^1.6.1",
+    "@connectrpc/protoc-gen-connect-es": "^1.0.0",
     "@genkit-ai/dotprompt": "^0.5.17",
     "@genkit-ai/flow": "^0.5.17",
     "@grpc/grpc-js": "^1.12.2",
@@ -51,6 +57,8 @@
     "@grpc/reflection": "^1.0.4",
     "@oconva/qvikchat": "^2.0.4",
     "dotenv": "^16.4.5",
+    "fastify": "^4.28.1",
+    "install": "^0.13.0",
     "kafkajs": "^2.2.4",
     "winston": "^3.15.0",
     "zod": "^3.23.8"
