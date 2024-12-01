@@ -50,7 +50,7 @@
     "@connectrpc/connect": "^1.0.0",
     "@connectrpc/connect-fastify": "^1.6.1",
     "@connectrpc/protoc-gen-connect-es": "^1.0.0",
-    "@genkit-ai/dotprompt": "^0.5.17",
+    "@genkit-ai/dotprompt": "^0.9.6",
     "@genkit-ai/flow": "^0.5.17",
     "@grpc/grpc-js": "^1.12.2",
     "@grpc/proto-loader": "^0.7.13",
