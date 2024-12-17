@@ -33,14 +33,14 @@ importers:
         specifier: ^0.5.17
         version: 0.5.17
       '@grpc/grpc-js':
-        specifier: ^1.12.2
-        version: 1.12.2
+        specifier: ^1.12.4
+        version: 1.12.4
       '@grpc/proto-loader':
         specifier: ^0.7.13
         version: 0.7.13
       '@grpc/reflection':
         specifier: ^1.0.4
-        version: 1.0.4(@grpc/grpc-js@1.12.2)
+        version: 1.0.4(@grpc/grpc-js@1.12.4)
       '@oconva/qvikchat':
         specifier: ^2.0.4
         version: 2.0.4(@google-cloud/storage@7.12.0)(@ibm-cloud/watsonx-ai@1.1.1)(axios@1.7.4)(chromadb@1.8.1(openai@4.68.4(zod@3.23.8)))(google-auth-library@9.13.0)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.1.0)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@4.68.4(zod@3.23.8))
@@ -658,8 +658,8 @@ packages:
     resolution: {integrity: sha512-WTjMLLYL/xfA5BW6xAycRPiAX7FNHKAxrid/ayqC1QMam0KAK0NbMeS9Lubw80gVg5xFMLE+H7pw4wdNzTOlxw==}
     engines: {node: '>=18.0.0'}
 
-  '@grpc/grpc-js@1.12.2':
-    resolution: {integrity: sha512-bgxdZmgTrJZX50OjyVwz3+mNEnCTNkh3cIqGPWVNeW9jX6bn1ZkU80uPd+67/ZpIJIjRQ9qaHCjhavyoWYxumg==}
+  '@grpc/grpc-js@1.12.4':
+    resolution: {integrity: sha512-NBhrxEWnFh0FxeA0d//YP95lRFsSx2TNLEUQg4/W+5f/BMxcCjgOOIT24iD+ZB/tZw057j44DaIxja7w4XMrhg==}
     engines: {node: '>=12.10.0'}
 
   '@grpc/proto-loader@0.7.13':
@@ -2211,6 +2211,10 @@ packages:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
 
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+    engines: {node: '>=12'}
+
   duplexify@4.1.3:
     resolution: {integrity: sha512-M3BmBhwJRZsSx38lZyhE53Csddgzl5R7xGJNk7CVddZD6CcmwMCH8J+7AprIrQKH7TonKxaCjcv27Qmf+sQ+oA==}
 
@@ -3646,8 +3650,8 @@ packages:
   pseudomap@1.0.2:
     resolution: {integrity: sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ==}
 
-  psl@1.13.0:
-    resolution: {integrity: sha512-BFwmFXiJoFqlUpZ5Qssolv15DMyc84gTBds1BjsV1BfXEo1UyyD7GsmN67n7J77uRhoSNW1AXtXKPLcBFQn9Aw==}
+  psl@1.15.0:
+    resolution: {integrity: sha512-JZd3gMVBAVQkSs6HdNZo9Sdo0LNcQeMNP3CozBJb3JYC/QUYZTnKxP+f8oWRX4rHP5EurWxqAHTSwUCjlNKa1w==}
 
   pstree.remy@1.1.8:
     resolution: {integrity: sha512-77DZwxQmxKnu3aR542U+X8FypNzbfJ+C5XQDk3uWjWxn6151aIMGthWYRXTqT1E5oJvg+ljaa2OJi+VfvCOQ8w==}
@@ -4956,7 +4960,7 @@ snapshots:
 
   '@google/generative-ai@0.7.1': {}
 
-  '@grpc/grpc-js@1.12.2':
+  '@grpc/grpc-js@1.12.4':
     dependencies:
       '@grpc/proto-loader': 0.7.13
       '@js-sdsl/ordered-map': 4.4.2
@@ -4968,9 +4972,9 @@ snapshots:
       protobufjs: 7.3.2
       yargs: 17.7.2
 
-  '@grpc/reflection@1.0.4(@grpc/grpc-js@1.12.2)':
+  '@grpc/reflection@1.0.4(@grpc/grpc-js@1.12.4)':
     dependencies:
-      '@grpc/grpc-js': 1.12.2
+      '@grpc/grpc-js': 1.12.4
       '@grpc/proto-loader': 0.7.13
       protobufjs: 7.3.2
 
@@ -5200,7 +5204,7 @@ snapshots:
       flat: 5.0.2
       ibm-cloud-sdk-core: 5.1.0
       js-yaml: 4.1.0
-      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
+      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
       langsmith: 0.2.0(openai@4.68.4(zod@3.23.8))
       uuid: 10.0.0
       zod: 3.23.8
@@ -5229,13 +5233,13 @@ snapshots:
       - openai
       - peggy
 
-  '@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
+  '@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
     dependencies:
       ansi-styles: 5.2.0
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.12
-      langsmith: 0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      langsmith: 0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
       ml-distance: 4.0.1
       mustache: 4.2.0
       p-queue: 6.6.2
@@ -5281,9 +5285,9 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@langchain/textsplitters@0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
+  '@langchain/textsplitters@0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))':
     dependencies:
-      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
       js-tiktoken: 1.0.12
     transitivePeerDependencies:
       - langchain
@@ -5327,7 +5331,7 @@ snapshots:
       dotenv: 16.4.5
       firebase-admin: 12.7.0
       genkitx-openai: 0.10.1(@genkit-ai/ai@0.5.17)(@genkit-ai/core@0.5.17)
-      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
+      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
       zod: 3.23.8
     transitivePeerDependencies:
       - '@arcjet/redact'
@@ -5490,7 +5494,7 @@ snapshots:
 
   '@opentelemetry/exporter-trace-otlp-grpc@0.52.1(@opentelemetry/api@1.9.0)':
     dependencies:
-      '@grpc/grpc-js': 1.12.2
+      '@grpc/grpc-js': 1.12.4
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/otlp-grpc-exporter-base': 0.52.1(@opentelemetry/api@1.9.0)
@@ -5544,7 +5548,7 @@ snapshots:
 
   '@opentelemetry/otlp-grpc-exporter-base@0.52.1(@opentelemetry/api@1.9.0)':
     dependencies:
-      '@grpc/grpc-js': 1.12.2
+      '@grpc/grpc-js': 1.12.4
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/otlp-exporter-base': 0.52.1(@opentelemetry/api@1.9.0)
@@ -6545,6 +6549,8 @@ snapshots:
 
   dotenv@16.4.5: {}
 
+  dotenv@16.4.7: {}
+
   duplexify@4.1.3:
     dependencies:
       end-of-stream: 1.4.4
@@ -7119,7 +7125,7 @@ snapshots:
 
   google-gax@4.3.8:
     dependencies:
-      '@grpc/grpc-js': 1.12.2
+      '@grpc/grpc-js': 1.12.4
       '@grpc/proto-loader': 0.7.13
       '@types/long': 4.0.2
       abort-controller: 3.0.0
@@ -7248,14 +7254,14 @@ snapshots:
       axios: 1.7.4(debug@4.3.7)
       camelcase: 6.3.0
       debug: 4.3.7(supports-color@5.5.0)
-      dotenv: 16.4.5
+      dotenv: 16.4.7
       extend: 3.0.2
       file-type: 16.5.4
       form-data: 4.0.0
       isstream: 0.1.2
       jsonwebtoken: 9.0.2
       mime-types: 2.1.35
-      retry-axios: 2.6.0(axios@1.7.4(debug@4.3.7))
+      retry-axios: 2.6.0(axios@1.7.4)
       tough-cookie: 4.1.4
     transitivePeerDependencies:
       - supports-color
@@ -7804,11 +7810,11 @@ snapshots:
 
   kuler@2.0.0: {}
 
-  langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)):
+  langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)):
     dependencies:
       '@langchain/core': 0.3.15(openai@4.68.4(zod@3.23.8))
       '@langchain/openai': 0.3.11(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))
-      '@langchain/textsplitters': 0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      '@langchain/textsplitters': 0.0.3(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
       js-tiktoken: 1.0.12
       js-yaml: 4.1.0
       jsonpointer: 5.0.1
@@ -7827,7 +7833,7 @@ snapshots:
       - encoding
       - openai
 
-  langsmith@0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)):
+  langsmith@0.1.40(@langchain/core@0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)))(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8)):
     dependencies:
       '@types/uuid': 9.0.8
       commander: 10.0.1
@@ -7836,8 +7842,8 @@ snapshots:
       semver: 7.6.3
       uuid: 9.0.1
     optionalDependencies:
-      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
-      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4(debug@4.3.7))(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
+      '@langchain/core': 0.2.19(langchain@0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8)))(openai@4.68.4(zod@3.23.8))
+      langchain: 0.3.4(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(@langchain/google-genai@0.1.0(@langchain/core@0.3.15(openai@4.68.4(zod@3.23.8)))(zod@3.23.8))(axios@1.7.4)(handlebars@4.7.8)(openai@4.68.4(zod@3.23.8))
       openai: 4.68.4(zod@3.23.8)
 
   langsmith@0.2.0(openai@4.68.4(zod@3.23.8)):
@@ -8302,7 +8308,7 @@ snapshots:
 
   pseudomap@1.0.2: {}
 
-  psl@1.13.0:
+  psl@1.15.0:
     dependencies:
       punycode: 2.3.1
 
@@ -8404,7 +8410,7 @@ snapshots:
 
   ret@0.4.3: {}
 
-  retry-axios@2.6.0(axios@1.7.4(debug@4.3.7)):
+  retry-axios@2.6.0(axios@1.7.4):
     dependencies:
       axios: 1.7.4(debug@4.3.7)
 
@@ -8680,7 +8686,7 @@ snapshots:
 
   tough-cookie@4.1.4:
     dependencies:
-      psl: 1.13.0
+      psl: 1.15.0
       punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
