@@ -44,7 +44,7 @@
     "typescript-eslint": "^8.11.0"
   },
   "dependencies": {
-    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/buf": "^1.49.0",
     "@bufbuild/protobuf": "^1.10.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@connectrpc/connect": "^1.0.0",
